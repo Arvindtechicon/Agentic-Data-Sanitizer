@@ -219,19 +219,19 @@ def main():
                 # Dynamic Recommendations based on columns - Deep Analytics focus
                 cols = df.columns.tolist()
                 
-                # Dictionary of detailed prompt structures
+                # Dictionary of powerful yet simple prompt structures
                 prompt_templates = {
-                    "Full Health Audit": "Perform a comprehensive data health audit. Identify missing values, check for duplicate records, validate data types, and generate a structural integrity report before cleaning.",
+                    "Full Audit": "Analyze the entire dataset and perform a deep health audit. Fix all structural issues and tell me if the data is reliable.",
                 }
                 
                 if any(c in str(cols).lower() for c in ['date', 'time', 'year', 'month']):
-                    prompt_templates["Temporal Growth"] = "Conduct a temporal trend analysis. Standardize date formats, handle any missing time-series entries, and visualize the growth trajectories over different time horizons."
+                    prompt_templates["Time Analysis"] = "Analyze the entire timeline and perform a trend growth study. Handle all date inconsistencies and show the trajectory."
                 
                 if any(c in str(cols).lower() for c in ['sales', 'revenue', 'price', 'amount']):
-                    prompt_templates["Anomaly Detection"] = "Detect financial anomalies using the IQR method. Scrub currency symbols, impute missing revenue figures with median values, and isolate high-variance outliers for secondary review."
+                    prompt_templates["Revenue Deep-Dive"] = "Analyze the entire revenue stream and perform anomaly detection. Clean the currency data and isolate the outliers."
                 
                 if any(c in str(cols).lower() for c in ['category', 'region', 'type', 'group']):
-                    prompt_templates["Segment Analysis"] = "Perform a categorical segment analysis. Standardize text casing, merge redundant category labels, and visualize the distribution mix to identify top-performing segments."
+                    prompt_templates["Segment Mix"] = "Analyze the entire segmentation and perform a category distribution audit. Standardize all labels and show the top performers."
                 
                 st.markdown("##### AI Recommendations")
                 # Display recommendations as small buttons (pills)
