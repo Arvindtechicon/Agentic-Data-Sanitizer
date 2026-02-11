@@ -20,24 +20,22 @@ We called this the **Sanitizer** because:
 ## 🌟 Key Features
 
 - **The Agentic Pipeline**: Sequential processing (Validation -> Preprocessing -> Anomaly Detection -> Visualization).
-- **💡 AI Recommendations**: Context-aware prompt suggestions that adapt based on your dataset's columns.
+- **💡 AI Recommendation System**: Context-aware, colorful action chips that predict and structure powerful prompts based on your data schema.
 - **Automated Data Audit**: Generates a **Health Score** and identifies missing values or type inconsistencies instantly.
 - **Smart Data Treatment**: Automatically fixes currency symbols, handles missing data, and standardizes categorical names.
-- **Anomaly Detection**: Uses statistical IQR methods to identify outliers and "Black Swan" events.
-- **Secure Sandbox**: Executes all AI-generated Python code in isolated [E2B Sandboxes](https://e2b.dev/).
-- **Premium UI/UX**: Includes a dedicated "Data Audit & Cleaning" log.
 
 ---
 
 ## 🏗️ System Architecture & Workflow
 
-The following diagram illustrates the **Agentic Pipeline** architecture of the AI Data Scientist:
+The following diagram illustrates the **Agentic Pipeline** and the **Context-Aware Recommendation Engine**:
 
 ```mermaid
 flowchart TD
     %% Node Definitions
     User([👤 User])
     UI[🖥️ Streamlit Premium Dashboard]
+    Recs[💡 AI Recommendation Engine]
     LLM[🧠 Google Gemini AI]
     Sandbox[🏗️ E2B Secure Sandbox]
     
@@ -51,7 +49,10 @@ flowchart TD
     end
 
     %% Connections
-    User -->|Interacts| UI
+    User -->|Uploads Data| UI
+    UI -->|Data Schema| Recs
+    Recs -->|Powerful Suggestions| User
+    User -->|Executes Prompt| UI
     UI -->|Data Context| LLM
     LLM -->|Python Code| Sandbox
     Sandbox -. executes .-> Pipeline
@@ -60,18 +61,20 @@ flowchart TD
     V -->|🛡️ Health Score| UI
     P -->|🧹 Cleaning Logs| UI
 
-    %% Styling for Premium Look
+    %% Styling 
     classDef user fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
     classDef ui fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
     classDef ai fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
     classDef sandbox fill:#eceff1,stroke:#455a64,stroke-width:2px;
     classDef pipe fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+    classDef recs fill:#fff3e0,stroke:#e65100,stroke-width:2px;
 
     class User user;
     class UI ui;
     class LLM ai;
     class Sandbox sandbox;
     class V,P,A,Z pipe;
+    class Recs recs;
 ```
 
 ### The Pipeline Stages:

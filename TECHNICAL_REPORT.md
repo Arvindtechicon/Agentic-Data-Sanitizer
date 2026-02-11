@@ -52,7 +52,7 @@ The agent's behavior is governed by a strict system instruction that forces it t
 All AI-generated Python code is executed in an **E2B Sandbox**. This isolation prevents potential "Prompt Injection" attacks or malicious code from affecting the host system while allowing complex operations like image generation and large-scale data manipulation.
 
 ### Context-Aware Recommendation Engine
-The UI features a dynamic suggestion system that analyzes the schema of the uploaded dataset. It identifies key data types (Temporal, Financial, Categorical) and proactively recommends the most effective analytical prompts, reducing the barrier to complex data science tasks.
+The UI features a dynamic, color-coded suggestion system that analyzes the schema of the uploaded dataset. It proactively recommends powerful, simple prompts like "Analyze the entire revenue stream and perform anomaly detection," eliminating the need for complex prompt engineering while ensuring the Agentic Pipeline is fully utilized.
 
 ---
 
@@ -62,7 +62,7 @@ This project includes two datasets to demonstrate the "Agentic Pipeline" effecti
 
 ### Scenario A: The "Ideal" Case
 **File**: `test_sales_data.csv`  
-**User Prompt**: *"Show me the total sales trend by region."*
+**User Prompt**: *"Analyze the entire dataset and show me the regional trends."*
 
 *   **How the AI Thinks**: "The data is already clean. I will perform a quick validation (Audit), confirm 100% health, and proceed directly to aggregation and plotting."
 *   **Resulting Response**: 
@@ -74,7 +74,7 @@ This project includes two datasets to demonstrate the "Agentic Pipeline" effecti
 
 ### Scenario B: The "Real-World" Case (Dirty Data)
 **File**: `uncleaned_sales_data.csv`  
-**User Prompt**: *"Analyze my sales trends and handle any anomalies."*
+**User Prompt**: *"Analyze the entire revenue stream and perform anomaly detection."*
 
 *   **How the AI Thinks**: 
     1.  **Diagnosis**: "Wait, 'Sales' has a `$` in one row and a missing value in another. The category 'electronics' is duplicated due to casing issues."
@@ -93,10 +93,10 @@ Use these prompts with the `uncleaned_sales_data.csv` to see the agent's complex
 
 | Goal | User Prompt (Copy-Paste this) | What to Look For |
 | :--- | :--- | :--- |
-| **Integrity Audit** | *"Perform a full audit. Tell me if I can trust this data."* | Look for the **Health Score** and the list of missing values found. |
-| **Fraud Spotting** | *"Identify any sales transactions that look like input errors or anomalies."* | The agent should isolate the **$999k laptop** as an IQR outlier. |
-| **Data Repair** | *"Clean the Sales and Category columns then show me a mix of sales."* | Check the **Cleaning Log** for "Removed $ symbols" and "Standardized categories." |
-| **Regional Mix** | *"Show me which region is leading in sales after removing anomalies."* | The agent will exclude the $999k outlier to give a true regional comparison. |
+| **Integrity Audit** | *"Analyze the entire dataset and perform a deep health audit."* | Look for the **Health Score** and the list of inconsistent formats found. |
+| **Fraud Spotting** | *"Analyze the entire revenue stream and perform anomaly detection."* | The agent should isolate the **$999k laptop** as an IQR outlier. |
+| **Time Series Audit** | *"Analyze the entire timeline and perform a trend growth study."* | Check the **Cleaning Log** for "Standardized date formats" (mixed DD/MM and MM/DD). |
+| **Regional Mix** | *"Analyze the entire segmentation and perform a category distribution audit."* | The agent will merge "electronics" and "ELECTRONICS" correctly. |
 
 ## 6. Usage Scenarios
 
@@ -119,4 +119,4 @@ The **Agentic Data Sanitizer** is designed for environments where data comes fro
 *   **The Sanitizer Solution:** Standardizes medical terminology using categorical casing and fills non-critical missing values with statistical averages to ensure research integrity.
 
 ---
-Agentic Pipeline v1.0 | Built with ❤️ by **Aravind S Gudi**
+Agentic Pipeline v1.5 | Built with ❤️ by **Aravind S Gudi**
