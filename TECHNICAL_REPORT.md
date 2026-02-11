@@ -30,7 +30,7 @@ The system follows a strict 4-stage sequential execution:
 - **Event Tagging**: Flags "Black Swan" events or data entry errors for separate analysis.
 
 ### Phase 4: VISUALIZATION (The Output)
-- **Comprehensive Visual Policy**: Automatically renders multiple intelligent charts (Temporal, Financial, Categorical) in a single run.
+- **Adaptive Visual Policy**: The system is "Instruction-Aware." It automatically renders multiple intelligent charts for general queries, but focuses exclusively on user-specified targets for direct requests (e.g., 'Plot histogram') to prevent output clutter.
 - **Clean Rendering**: Plots only the validated and processed data.
 - **Contextual Highlighting**: Automatically highlights identified anomalies in red or specialized callouts within the charts.
 

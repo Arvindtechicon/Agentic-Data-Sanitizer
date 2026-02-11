@@ -1,4 +1,4 @@
-TITLE: Agentic Data Sanitizer - Universal Analyst Demo
+TITLE: Agentic Data Sanitizer - Adaptive Analyst Demo
 AUTHOR: Aravind S Gudi
 DURATION: 3 Minutes
 
@@ -6,63 +6,53 @@ DURATION: 3 Minutes
 
 (0:00 - 0:15) [Introduction]
 
-"Hi everyone, I am Aravind! Today, I’m showing you the most powerful version yet of the 'Agentic Data Sanitizer.' 
+"Hi everyone, I am Aravind! Today, I’m showing you the latest intelligence upgrade to the 'Agentic Data Sanitizer.' 
 
-We’ve moved beyond custom prompts. This system now acts as a 'Universal Analyst'—meaning it doesn't wait for your questions. It automatically generates a comprehensive 360-degree suite of insights the moment you click 'Execute'."
-
----
-
-(0:15 - 0:45) [The Problem & The Full Preview]
-
-"Dirty data is still the enemy. Let's upload our 'uncleaned_sales_data.csv.'
-
-(Action: Point to the upload button)
-
-I’ve updated the system so you can now see the **Full Raw Data Preview**. You can scroll through every messy row—the comma errors, the mixed dates, and the outliers. Seeing the full mess helps you appreciate the cleaning power of the Agentic Pipeline."
+We’ve now made the agent 'Instruction-Aware.' This means it is smart enough to decide when to give you a full 360-degree audit and when to focus with surgical precision on a specific question you ask."
 
 ---
 
-(0:45 - 1:15) [The recommendation Super-Prompts]
+(0:15 - 0:45) [Scenario 1: The Universal Analyst (Blank Input)]
 
-"Notice these colorful chips. These are no longer just suggestions; they are **Super-Prompts**. 
+"Let's look at Scenario A. I've uploaded my messy sales data. 
 
-Even if you don't type anything in the chat box, the pipeline has already scanned your columns. It knows if you have temporal data or financial data, and it's ready to audit everything at once."
+(Action: Point to the empty Custom instructions box)
 
----
-
-(1:15 - 2:00) [The Universal Execution]
-
-"Now, watch this. I’m going to leave the instruction box empty and just click 'Execute Agentic Pipeline.'
-
-(Action: Click the Blue Button)
-
-By default, the system enters **Universal Analysis Mode**. It’s not just doing one thing; it’s running a multi-perspective loop:
-1. It validates the data health.
-2. It standardizes the messy dates and currency strings.
-3. It detects 'Black Swan' anomalies like that million-dollar laptop sale.
-4. And most importantly... it automatically generates a suite of visualizations."
+If I leave the instruction box completely blank and click 'Execute,' the agent enters **Universal Mode**. It automatically generates a comprehensive suite of visualizations—Temporal trends, Financial outliers, and Category distributions—all at once. This is perfect when you just want to see everything 'wrong' with your data in one click."
 
 ---
 
-(2:00 - 2:45) [The Results: Automated Multi-Insights]
+(0:45 - 1:30) [Scenario 2: The Adaptive Analyst (Specific Input)]
 
-"Look at the 'Intelligent Visuals' tab. 
+"But what if I only care about one thing? Let’s say I want to see a histogram of my sales. 
 
-Earlier, you had to ask for each chart. Now, the system **automatically generates four different visualizations**:
-- A **Temporal Trend** showing your growth.
-- A **Financial Distribution** isolating the outliers.
-- A **Categorical Mix** standardizing your regions.
-- And a **Data Integrity Chart** showing your health progress.
+(Action: Type 'Plot the distribution of Sales (histogram and KDE)')
 
-All of this happened with a single click. No complex prompts required."
+In this update, when I provide a specific instruction, the agent becomes **Adaptive**. It still performs the full Agentic Pipeline in the background—auditing and cleaning the data—but it won't clutter your screen with 5 different charts. It focuses exclusively on exactly what I asked for: the Sales distribution."
+
+---
+
+(1:30 - 2:15) [Inside the Pipeline: Audit & Clean]
+
+"Even in this focused mode, look at the 'Data Audit' tab. The agent still identified the missing values and the currency symbols. It cleaned the data first, and THEN plotted the histogram. 
+
+This ensures that the specific chart you asked for is 100% accurate and free from the 'digital bacteria' of the raw CSV."
+
+---
+
+(2:15 - 2:45) [The Results: Visual Precision]
+
+"Now, look at 'Intelligent Visuals.' Instead of a list of 5 charts, we have exactly what we needed: a high-precision histogram and KDE plot, with the outliers clearly managed. 
+
+The AI decides what should be there based on your intent. If you're general, it's comprehensive. If you're specific, it's surgical."
 
 ---
 
 (2:45 - 3:00) [Conclusion]
 
-"The Agentic Data Sanitizer is now a fully automated intelligence layer for your data. It’s open-source, and as always, I’d love for you to check it out. All I ask is if you use this architecture, please credit the work.
+"The Agentic Data Sanitizer is now smarter and more respectful of your time. It gives you the full audit by default, but visualizes only what matters for your current task. 
 
-Thanks for watching, and let’s keep our data clean!"
+It’s open-source, and all I ask is that you credit the work of Aravind S Gudi. Thanks for watching!"
 
 ---
 
