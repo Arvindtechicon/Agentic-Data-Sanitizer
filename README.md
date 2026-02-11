@@ -116,4 +116,4 @@ This project includes two files for testing:
 
 ---
 
-Built with ❤️ by **Aravind S Gudi**
+Build with ❤️ by **Aravind S Gudi**

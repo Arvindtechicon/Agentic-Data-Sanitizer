@@ -326,7 +326,7 @@ def main():
         }
         </style>
         <div class="footer">
-            Built with ❤️ by <b>Aravind S Gudi</b> | Agentic Pipeline v1.0
+            Build with ❤️ by Aravind S Gudi
         </div>
     """, unsafe_allow_html=True)
 

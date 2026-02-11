@@ -119,4 +119,4 @@ The **Agentic Data Sanitizer** is designed for environments where data comes fro
 *   **The Sanitizer Solution:** Standardizes medical terminology using categorical casing and fills non-critical missing values with statistical averages to ensure research integrity.
 
 ---
-Agentic Pipeline v1.5 | Built with ❤️ by **Aravind S Gudi**
+Build with ❤️ by Aravind S Gudi
