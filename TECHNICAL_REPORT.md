@@ -51,9 +51,6 @@ The agent's behavior is governed by a strict system instruction that forces it t
 ### Secure Sandbox Execution
 All AI-generated Python code is executed in an **E2B Sandbox**. This isolation prevents potential "Prompt Injection" attacks or malicious code from affecting the host system while allowing complex operations like image generation and large-scale data manipulation.
 
-### User-Centric "Quick Actions"
-The UI includes pre-configured **Quick Action Buttons** that eliminate the need for manual prompting. The agent proactively determines the best statistical model and visualization style based on these clicks.
-
 ---
 
 ## 🧪 User Testing Guide: Scenario Comparison

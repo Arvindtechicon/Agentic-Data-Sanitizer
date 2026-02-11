@@ -1,0 +1,55 @@
+TITLE: Agentic Data Sanitizer - Demo Script
+AUTHOR: Aravind S Gudi
+DURATION: 2-3 Minutes
+
+---
+
+(0:00 - 0:15) [Introduction]
+
+"Hi everyone, I am Aravind! Today, I’m excited to show you something I’ve been working on. 
+
+This is the 'Agentic Data Sanitizer.' You might remember my previous project, the 'Data Visualization Agent.' Well, think of this as a huge upgrade. It’s not just about creating charts anymore—it’s about making sure the data behind those charts is actually clean and trustworthy."
+
+---
+
+(0:15 - 0:45) [The Problem & The Upgrade]
+
+"We all know the saying: 'Garbage in, Garbage out.' If your data is messy—like having extra dollar signs, missing values, or weird typos—your charts will be wrong. 
+
+That’s why I built the 'Agentic Pipeline.' Instead of just jumping to the visuals, this agent acts like a Senior Data Scientist. It automatically audits, cleans, and checks for anomalies before it ever draws a single line."
+
+---
+
+(0:45 - 1:30) [The Demo Walkthrough - Uploading]
+
+"Let’s see it in action. I’m going to upload a very messy dataset here called 'uncleaned_sales_data.csv.'
+
+(Action: Point to the upload button)
+
+Once it's uploaded, you can see the raw data is a bit of a disaster. We have currency symbols mixed with numbers, missing dates, and even some crazy outliers—like a laptop being sold for a million dollars!
+
+Now, instead of me doing the work, I’ll just type a simple prompt like: 'Analyze my sales trends and handle any anomalies.'"
+
+---
+
+(1:30 - 2:15) [Explaining the Results]
+
+"Look at what happens! The agent starts the Agentic Pipeline. 
+
+First, look at the 'Data Audit' tab. It gives us a 'Data Health Score.' It found the missing values and the duplicate categories for us.
+
+Next, in the 'Execution Log,' you can see exactly what it cleaned. It stripped the dollar signs, fixed the dates, and even flagged that million-dollar laptop as a technical error or an anomaly. This is huge because it means our final chart won't be ruined by that one mistake.
+
+And finally, if we go to the 'Intelligent Visuals' tab... there it is! A beautiful, clean trend line. This chart is based on the 'sanitized' data, not the messy original."
+
+---
+
+(2:15 - 2:30) [Conclusion]
+
+"This makes data analysis so much safer and faster. It’s completely open-source, and I’d love for you to check it out on my GitHub, play with the code, or even contribute. 
+
+If you do use it, all I ask is that you mention my name, Aravind S Gudi, or the project process.
+
+Thanks for watching, and let’s keep our data clean!"
+
+---

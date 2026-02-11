@@ -185,28 +185,14 @@ def main():
     with col2:
         st.subheader("💬 AI Analyst")
         
-        # Quick Actions for a better UX
-        st.markdown("##### ⚡ Quick Actions")
-        q_col1, q_col2, q_col3 = st.columns(3)
-        
-        quick_query = None
-        if q_col1.button("📈 Trend Analysis"):
-            quick_query = "Analyze my sales trends, handle anomalies, and show me the growth over time."
-        if q_col2.button("🍕 Category Mix"):
-            quick_query = "Show me the distribution of sales across different categories and identify the top performer."
-        if q_col3.button("🛡️ Full Data Audit"):
-            quick_query = "Perform a deep health audit of this dataset, clean all inconsistencies, and tell me if it's reliable."
-
-        query = st.text_area("Or type your custom instructions...", 
-                           value=quick_query if quick_query else "",
+        query = st.text_area("Type your custom instructions...", 
                            placeholder="Ex: Compare sales by region and show me a heatmap.",
-                           height=100)
+                           height=150)
         
         analyze_btn = st.button("🚀 Execute Agentic Pipeline")
 
-    if uploaded_file and (analyze_btn or quick_query):
-        # Use the quick_query if a button was pressed, otherwise use the text area
-        final_query = quick_query if quick_query else query
+    if uploaded_file and analyze_btn:
+        final_query = query
         
         if not st.session_state.google_api_key or not st.session_state.e2b_api_key:
             st.error("Missing API Keys! Configure in sidebar.")
