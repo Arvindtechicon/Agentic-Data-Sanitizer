@@ -214,7 +214,7 @@ def main():
             st.success(f"Loaded: {uploaded_file.name}")
             
             with st.expander("🔍 Raw Data Preview"):
-                st.dataframe(df.head(5), use_container_width=True)
+                st.dataframe(df.head(5), width='stretch')
 
     with col2:
         with st.container(border=True):
@@ -245,7 +245,7 @@ def main():
                 rec_cols = st.columns(len(prompt_templates))
                 chip_styles = ["chip-audit", "chip-time", "chip-revenue", "chip-segment"]
                 for i, (label, detailed_prompt) in enumerate(prompt_templates.items()):
-                    if rec_cols[i].button(label, use_container_width=True, key=f"rec_{i}"):
+                    if rec_cols[i].button(label, width='stretch', key=f"rec_{i}"):
                         st.session_state.query_input = detailed_prompt
                         st.rerun()
 
@@ -255,7 +255,7 @@ def main():
                                height=120,
                                label_visibility="collapsed")
             
-            analyze_btn = st.button("🚀 Execute Agentic Pipeline", type="primary", use_container_width=True)
+            analyze_btn = st.button("🚀 Execute Agentic Pipeline", type="primary", width='stretch')
 
     if uploaded_file and analyze_btn:
         final_query = query
@@ -296,11 +296,11 @@ def main():
                             for result in code_results:
                                 if hasattr(result, 'png') and result.png:
                                     png_data = base64.b64decode(result.png)
-                                    st.image(Image.open(BytesIO(png_data)), use_container_width=True)
+                                    st.image(Image.open(BytesIO(png_data)), width='stretch')
                                 elif hasattr(result, 'figure'):
-                                    st.pyplot(result.figure, use_container_width=True)
+                                    st.pyplot(result.figure, width='stretch')
                                 elif isinstance(result, (pd.DataFrame, pd.Series)):
-                                    st.dataframe(result, use_container_width=True)
+                                    st.dataframe(result, width='stretch')
                         else:
                             st.warning("No visual artifacts generated. The agent prioritized a structural audit. Try asking for a 'plot' or 'trend' specifically.")
 
