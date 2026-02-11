@@ -1,0 +1,69 @@
+TITLE: Agentic Data Sanitizer - Universal Analyst Demo
+AUTHOR: Aravind S Gudi
+DURATION: 3 Minutes
+
+---
+
+(0:00 - 0:15) [Introduction]
+
+"Hi everyone, I am Aravind! Today, I’m showing you the most powerful version yet of the 'Agentic Data Sanitizer.' 
+
+We’ve moved beyond custom prompts. This system now acts as a 'Universal Analyst'—meaning it doesn't wait for your questions. It automatically generates a comprehensive 360-degree suite of insights the moment you click 'Execute'."
+
+---
+
+(0:15 - 0:45) [The Problem & The Full Preview]
+
+"Dirty data is still the enemy. Let's upload our 'uncleaned_sales_data.csv.'
+
+(Action: Point to the upload button)
+
+I’ve updated the system so you can now see the **Full Raw Data Preview**. You can scroll through every messy row—the comma errors, the mixed dates, and the outliers. Seeing the full mess helps you appreciate the cleaning power of the Agentic Pipeline."
+
+---
+
+(0:45 - 1:15) [The recommendation Super-Prompts]
+
+"Notice these colorful chips. These are no longer just suggestions; they are **Super-Prompts**. 
+
+Even if you don't type anything in the chat box, the pipeline has already scanned your columns. It knows if you have temporal data or financial data, and it's ready to audit everything at once."
+
+---
+
+(1:15 - 2:00) [The Universal Execution]
+
+"Now, watch this. I’m going to leave the instruction box empty and just click 'Execute Agentic Pipeline.'
+
+(Action: Click the Blue Button)
+
+By default, the system enters **Universal Analysis Mode**. It’s not just doing one thing; it’s running a multi-perspective loop:
+1. It validates the data health.
+2. It standardizes the messy dates and currency strings.
+3. It detects 'Black Swan' anomalies like that million-dollar laptop sale.
+4. And most importantly... it automatically generates a suite of visualizations."
+
+---
+
+(2:00 - 2:45) [The Results: Automated Multi-Insights]
+
+"Look at the 'Intelligent Visuals' tab. 
+
+Earlier, you had to ask for each chart. Now, the system **automatically generates four different visualizations**:
+- A **Temporal Trend** showing your growth.
+- A **Financial Distribution** isolating the outliers.
+- A **Categorical Mix** standardizing your regions.
+- And a **Data Integrity Chart** showing your health progress.
+
+All of this happened with a single click. No complex prompts required."
+
+---
+
+(2:45 - 3:00) [Conclusion]
+
+"The Agentic Data Sanitizer is now a fully automated intelligence layer for your data. It’s open-source, and as always, I’d love for you to check it out. All I ask is if you use this architecture, please credit the work.
+
+Thanks for watching, and let’s keep our data clean!"
+
+---
+
+Build with ❤️ by Aravind S Gudi

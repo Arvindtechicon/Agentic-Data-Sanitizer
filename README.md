@@ -20,7 +20,8 @@ We called this the **Sanitizer** because:
 ## 🌟 Key Features
 
 - **The Agentic Pipeline**: Sequential processing (Validation -> Preprocessing -> Anomaly Detection -> Visualization).
-- **💡 AI Recommendation System**: Context-aware, colorful action chips that predict and structure powerful prompts based on your data schema.
+- **🚀 Automated Multi-Insight Engine**: Automatically generates a suite of visualizations covering Temporal, Financial, and Categorical dimensions without requiring manual prompts for each.
+- **💡 AI Recommendation System**: Context-aware action chips that help focus the analysis on specific high-value targets.
 - **Automated Data Audit**: Generates a **Health Score** and identifies missing values or type inconsistencies instantly.
 - **Smart Data Treatment**: Automatically fixes currency symbols, handles missing data, and standardizes categorical names.
 

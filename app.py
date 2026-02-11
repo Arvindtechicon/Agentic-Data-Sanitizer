@@ -52,13 +52,20 @@ def chat_with_llm(e2b_code_interpreter: Sandbox, user_message: str, dataset_path
     system_prompt = f"""You are a Senior AI Data Scientist. Follow the 'Agentic Pipeline':
 1. VALIDATION | 2. PREPROCESSING | 3. ANOMALY DETECTION | 4. VISUALIZATION
 
-IMPORTANT:
+MANDATORY BEHAVIOR:
 - Dataset location: '{dataset_path}'
 - Actual Columns: {columns_list}
+- **Comprehensive Visual Policy**: Even if the user asks for a simple thing, you MUST automatically include visualizations for the following (if columns are available):
+  - **Temporal Integrity**: Growth trends or timeline study (if Date/Time exists).
+  - **Financial Audit**: Revenue streams/Pricing distribution and outliers (if Sales/Price exists).
+  - **Categorical Mix**: Distribution and top performers (if Category/Region/Group exists).
+  - **Health Metrics**: A bar chart or summary of missing values/data integrity.
+
+STRICT REQUIREMENTS:
 - First, write a brief human-readable plan in your response.
-- Then, write a Python code block using ```python...```.
-- Inside the code, use `print()` for the 'Data Health Report' and 'Cleaning Log'.
-- Ensure you use the correct column names from the provided list: {columns_list}."""
+- Then, write a SINGLE Python code block using ```python...``` that performs ALL these steps.
+- Use `print("Health Score: X%")` inside the code for the audit tab.
+- Ensure you use the correct column names: {columns_list}."""
 
     with st.spinner('Applying Agentic Pipeline logic...'):
         try:
@@ -258,7 +265,10 @@ def main():
             analyze_btn = st.button("🚀 Execute Agentic Pipeline", type="primary", width='stretch')
 
     if uploaded_file and analyze_btn:
-        final_query = query
+        final_query = query.strip()
+        if not final_query:
+            # Shift to Universal Analyst mode if no specific query is provided
+            final_query = "Perform a comprehensive 360-degree data analysis. Execute the full Agentic Pipeline across all available dimensions (Temporal, Financial, Categorical) and generate all applicable visualizations."
         
         if not st.session_state.google_api_key or not st.session_state.e2b_api_key:
             st.error("Missing API Keys! Configure in sidebar.")

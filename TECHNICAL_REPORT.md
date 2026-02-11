@@ -30,6 +30,7 @@ The system follows a strict 4-stage sequential execution:
 - **Event Tagging**: Flags "Black Swan" events or data entry errors for separate analysis.
 
 ### Phase 4: VISUALIZATION (The Output)
+- **Comprehensive Visual Policy**: Automatically renders multiple intelligent charts (Temporal, Financial, Categorical) in a single run.
 - **Clean Rendering**: Plots only the validated and processed data.
 - **Contextual Highlighting**: Automatically highlights identified anomalies in red or specialized callouts within the charts.
 
@@ -52,7 +53,7 @@ The agent's behavior is governed by a strict system instruction that forces it t
 All AI-generated Python code is executed in an **E2B Sandbox**. This isolation prevents potential "Prompt Injection" attacks or malicious code from affecting the host system while allowing complex operations like image generation and large-scale data manipulation.
 
 ### Context-Aware Recommendation Engine
-The UI features a dynamic, color-coded suggestion system that analyzes the schema of the uploaded dataset. It proactively recommends powerful, simple prompts like "Analyze the entire revenue stream and perform anomaly detection," eliminating the need for complex prompt engineering while ensuring the Agentic Pipeline is fully utilized.
+The UI features a dynamic, color-coded suggestion system that analyzes the schema of the uploaded dataset. These chips now act as "Super Prompts"—when clicked, they focus the agent's attention on a specific domain (like Revenue or Time) while still ensuring a comprehensive 360-degree visual report is generated automatically in the "Intelligent Visuals" tab.
 
 ---
 
