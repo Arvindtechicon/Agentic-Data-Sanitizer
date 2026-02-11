@@ -138,34 +138,28 @@ def main():
             background-color: #1d4ed8 !important;
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
         }
-        /* Style Recommendation Buttons as Premium Chips */
+        /* Style Recommendation Buttons as Colorful Chips */
         div[data-testid="column"] button[kind="secondary"] {
-            border-radius: 25px !important;
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
-            border: 1px solid #e2e8f0 !important;
-            color: #3b82f6 !important;
+            border-radius: 12px !important;
+            border: 1px solid transparent !important;
             padding: 8px 16px !important;
             font-size: 0.85rem !important;
             font-weight: 600 !important;
-            transition: all 0.3s ease !important;
+            transition: all 0.2s ease !important;
             text-transform: capitalize !important;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
         }
         div[data-testid="column"] button[kind="secondary"]:hover {
-            border-color: #3b82f6 !important;
-            background: #eff6ff !important;
-            color: #2563eb !important;
             transform: translateY(-2px) !important;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15) !important;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important;
+            filter: brightness(0.95) !important;
         }
-        .recommendation-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #64748b;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
+
+        /* Specific Chip Colors applied directly to the button elements */
+        div[data-testid="column"]:nth-child(1) button { background-color: #ecfdf5 !important; color: #065f46 !important; border: 1px solid #a7f3d0 !important; }
+        div[data-testid="column"]:nth-child(2) button { background-color: #eff6ff !important; color: #1e40af !important; border: 1px solid #bfdbfe !important; }
+        div[data-testid="column"]:nth-child(3) button { background-color: #fff7ed !important; color: #9a3412 !important; border: 1px solid #ffedd5 !important; }
+        div[data-testid="column"]:nth-child(4) button { background-color: #f5f3ff !important; color: #5b21b6 !important; border: 1px solid #ddd6fe !important; }
         .report-section {
             background-color: white;
             padding: 1.5rem;
@@ -245,15 +239,15 @@ def main():
                 if any(c in str(cols).lower() for c in ['category', 'region', 'type', 'group']):
                     prompt_templates["Segment Mix"] = "Analyze the entire segmentation and perform a category distribution audit. Standardize all labels and show the top performers."
                 
-                st.markdown('<p class="recommendation-label">✨ AI-Powered Analytics Recommendations</p>', unsafe_allow_html=True)
-                # Display recommendations as attractive chips
+                st.markdown("##### 💡 AI Recommendations")
+                
+                # Display recommendations as colorful chips
                 rec_cols = st.columns(len(prompt_templates))
+                chip_styles = ["chip-audit", "chip-time", "chip-revenue", "chip-segment"]
                 for i, (label, detailed_prompt) in enumerate(prompt_templates.items()):
                     if rec_cols[i].button(label, use_container_width=True, key=f"rec_{i}"):
                         st.session_state.query_input = detailed_prompt
                         st.rerun()
-
-                st.divider()
 
             query = st.text_area("Custom instructions", 
                                value=st.session_state.query_input,
