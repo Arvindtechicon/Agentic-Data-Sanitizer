@@ -214,7 +214,7 @@ def main():
             st.success(f"Loaded: {uploaded_file.name}")
             
             with st.expander("🔍 Raw Data Preview"):
-                st.dataframe(df.head(5), width='stretch')
+                st.dataframe(df, width='stretch')
 
     with col2:
         with st.container(border=True):
