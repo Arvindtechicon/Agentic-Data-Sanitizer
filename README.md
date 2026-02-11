@@ -20,6 +20,7 @@ We called this the **Sanitizer** because:
 ## 🌟 Key Features
 
 - **The Agentic Pipeline**: Sequential processing (Validation -> Preprocessing -> Anomaly Detection -> Visualization).
+- **💡 AI Recommendations**: Context-aware prompt suggestions that adapt based on your dataset's columns.
 - **Automated Data Audit**: Generates a **Health Score** and identifies missing values or type inconsistencies instantly.
 - **Smart Data Treatment**: Automatically fixes currency symbols, handles missing data, and standardizes categorical names.
 - **Anomaly Detection**: Uses statistical IQR methods to identify outliers and "Black Swan" events.

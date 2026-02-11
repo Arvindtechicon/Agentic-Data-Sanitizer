@@ -28,7 +28,7 @@ That’s why I built the 'Agentic Pipeline.' Instead of just jumping to the visu
 
 Once it's uploaded, you can see the raw data is a bit of a disaster. We have currency symbols mixed with numbers, missing dates, and even some crazy outliers—like a laptop being sold for a million dollars!
 
-Now, instead of me doing the work, I’ll just type a simple prompt like: 'Analyze my sales trends and handle any anomalies.'"
+Now, instead of me doing the work, I’ll just use one of the 'AI Recommendations' tailored to my data or type a simple prompt like: 'Analyze my sales trends and handle any anomalies.'"
 
 ---
 

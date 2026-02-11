@@ -51,6 +51,9 @@ The agent's behavior is governed by a strict system instruction that forces it t
 ### Secure Sandbox Execution
 All AI-generated Python code is executed in an **E2B Sandbox**. This isolation prevents potential "Prompt Injection" attacks or malicious code from affecting the host system while allowing complex operations like image generation and large-scale data manipulation.
 
+### Context-Aware Recommendation Engine
+The UI features a dynamic suggestion system that analyzes the schema of the uploaded dataset. It identifies key data types (Temporal, Financial, Categorical) and proactively recommends the most effective analytical prompts, reducing the barrier to complex data science tasks.
+
 ---
 
 ## 🧪 User Testing Guide: Scenario Comparison

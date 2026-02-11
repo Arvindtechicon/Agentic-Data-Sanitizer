@@ -157,6 +157,8 @@ def main():
         st.session_state.google_api_key = os.getenv("GOOGLE_API_KEY", "")
     if 'e2b_api_key' not in st.session_state:
         st.session_state.e2b_api_key = os.getenv("E2B_API_KEY", "")
+    if 'query_input' not in st.session_state:
+        st.session_state.query_input = ""
     
     st.session_state.model_name = 'gemini-2.5-flash'
 
@@ -185,7 +187,28 @@ def main():
     with col2:
         st.subheader("💬 AI Analyst")
         
+        if uploaded_file is not None:
+            # Dynamic Recommendations based on columns
+            cols = df.columns.tolist()
+            recs = ["🛡️ Perform a full data health audit"]
+            
+            if any(c in str(cols).lower() for c in ['date', 'time', 'year', 'month']):
+                recs.append("📈 Analyze temporal trends and growth")
+            if any(c in str(cols).lower() for c in ['sales', 'revenue', 'price', 'amount']):
+                recs.append("💰 Identify revenue anomalies and outliers")
+            if any(c in str(cols).lower() for c in ['category', 'region', 'type', 'group']):
+                recs.append("🍕 Show distribution across categories")
+            
+            st.markdown("##### 💡 AI Recommendations")
+            # Display recommendations as small buttons
+            rec_cols = st.columns(len(recs))
+            for i, rec in enumerate(recs):
+                if rec_cols[i].button(rec, use_container_width=True, key=f"rec_{i}"):
+                    st.session_state.query_input = rec.split(" ", 1)[1] # Remove emoji
+                    st.rerun()
+
         query = st.text_area("Type your custom instructions...", 
+                           value=st.session_state.query_input,
                            placeholder="Ex: Compare sales by region and show me a heatmap.",
                            height=150)
         
