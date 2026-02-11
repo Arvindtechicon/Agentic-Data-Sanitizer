@@ -122,7 +122,7 @@ def main():
             border: 1px solid #e2e8f0;
             box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
         }
-        /* Style the Execute Button */
+        /* Style the Execute Button - Solid Blue Theme */
         button[kind="primary"] {
             width: 100% !important;
             border-radius: 10px !important;
@@ -130,6 +130,13 @@ def main():
             font-weight: 800 !important;
             text-transform: uppercase !important;
             letter-spacing: 0.5px !important;
+            background-color: #2563eb !important;
+            color: white !important;
+            border: none !important;
+        }
+        button[kind="primary"]:hover {
+            background-color: #1d4ed8 !important;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
         }
         /* Style Recommendation Buttons as Chips */
         div[data-testid="column"] button[kind="secondary"] {
@@ -140,6 +147,7 @@ def main():
             padding: 4px 12px !important;
             font-size: 0.85rem !important;
             transition: 0.2s !important;
+            text-transform: capitalize !important;
         }
         div[data-testid="column"] button[kind="secondary"]:hover {
             background-color: #e2e8f0 !important;
@@ -208,23 +216,29 @@ def main():
             st.info("💡 Pro Tip: Select a recommendation or type your own instructions below.")
             
             if uploaded_file is not None:
-                # Dynamic Recommendations based on columns
+                # Dynamic Recommendations based on columns - Deep Analytics focus
                 cols = df.columns.tolist()
-                recs = ["🛡️ Data health audit"]
+                
+                # Dictionary of detailed prompt structures
+                prompt_templates = {
+                    "Full Health Audit": "Perform a comprehensive data health audit. Identify missing values, check for duplicate records, validate data types, and generate a structural integrity report before cleaning.",
+                }
                 
                 if any(c in str(cols).lower() for c in ['date', 'time', 'year', 'month']):
-                    recs.append("📈 Temporal trends")
+                    prompt_templates["Temporal Growth"] = "Conduct a temporal trend analysis. Standardize date formats, handle any missing time-series entries, and visualize the growth trajectories over different time horizons."
+                
                 if any(c in str(cols).lower() for c in ['sales', 'revenue', 'price', 'amount']):
-                    recs.append("💰 Revenue anomalies")
+                    prompt_templates["Anomaly Detection"] = "Detect financial anomalies using the IQR method. Scrub currency symbols, impute missing revenue figures with median values, and isolate high-variance outliers for secondary review."
+                
                 if any(c in str(cols).lower() for c in ['category', 'region', 'type', 'group']):
-                    recs.append("🍕 Category mix")
+                    prompt_templates["Segment Analysis"] = "Perform a categorical segment analysis. Standardize text casing, merge redundant category labels, and visualize the distribution mix to identify top-performing segments."
                 
                 st.markdown("##### AI Recommendations")
                 # Display recommendations as small buttons (pills)
-                rec_cols = st.columns(len(recs))
-                for i, rec in enumerate(recs):
-                    if rec_cols[i].button(rec, use_container_width=True, key=f"rec_{i}"):
-                        st.session_state.query_input = f"Analyze my {rec.split(' ', 1)[1].lower()} and apply the Agentic Pipeline."
+                rec_cols = st.columns(len(prompt_templates))
+                for i, (label, detailed_prompt) in enumerate(prompt_templates.items()):
+                    if rec_cols[i].button(label, use_container_width=True, key=f"rec_{i}"):
+                        st.session_state.query_input = detailed_prompt
                         st.rerun()
 
             query = st.text_area("Custom instructions", 
