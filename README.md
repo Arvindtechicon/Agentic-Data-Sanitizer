@@ -31,27 +31,47 @@ We called this the **Sanitizer** because:
 
 ## 🏗️ System Architecture & Workflow
 
-The following diagram illustrates the **Golden Pipeline** architecture of the AI Data Scientist:
+The following diagram illustrates the **Agentic Pipeline** architecture of the AI Data Scientist:
 
 ```mermaid
 flowchart TD
-    User([👤 User]) -->|Prompt / Quick Action| UI[Streamlit Premium Dashboard]
+    %% Node Definitions
+    User([👤 User])
+    UI[🖥️ Streamlit Premium Dashboard]
+    LLM[🧠 Google Gemini AI]
+    Sandbox[🏗️ E2B Secure Sandbox]
     
-    UI -->|Data Context| LLM[🧠 Google Gemini 1.5 Flash]
-    LLM -->|Python Code| Sandbox[🛠️ E2B Code Interpreter]
-    
-    subgraph Agentic_Pipeline [🛡️ The Agentic Pipeline Architecture]
+    subgraph Pipeline [🛡️ Agentic Pipeline Architecture]
         direction TB
-        Audit{{1. VALIDATION}} -->|Health Score| PreProcess{{2. PREPROCESSING}}
-        PreProcess -->|Cleaned Data| Anomaly{{3. ANOMALY DETECTION}}
-        Anomaly -->|Refined Insights| Viz{{4. VISUALIZATION}}
+        V{{✅ 1. VALIDATION}}
+        P{{🧹 2. PREPROCESSING}}
+        A{{🔍 3. ANOMALY DETECTION}}
+        Z{{📊 4. VISUALIZATION}}
+        V --> P --> A --> Z
     end
+
+    %% Connections
+    User -->|Interacts| UI
+    UI -->|Data Context| LLM
+    LLM -->|Python Code| Sandbox
+    Sandbox -. executes .-> Pipeline
     
-    Sandbox -. executes .-> Agentic_Pipeline
-    
-    Viz -->|� Graphics| UI
-    Audit -->|�️ Reports| UI
-    PreProcess -->|� Logs| UI
+    Z -->|📈 Visuals| UI
+    V -->|🛡️ Health Score| UI
+    P -->|🧹 Cleaning Logs| UI
+
+    %% Styling for Premium Look
+    classDef user fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef ui fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
+    classDef ai fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
+    classDef sandbox fill:#eceff1,stroke:#455a64,stroke-width:2px;
+    classDef pipe fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
+
+    class User user;
+    class UI ui;
+    class LLM ai;
+    class Sandbox sandbox;
+    class V,P,A,Z pipe;
 ```
 
 ### The Pipeline Stages:
