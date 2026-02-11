@@ -114,19 +114,37 @@ def main():
         .main {
             background-color: #f8f9fa;
         }
-        .stButton>button {
-            width: 100%;
-            border-radius: 10px;
-            height: 3em;
-            background-color: #2563eb;
-            color: white;
-            font-weight: bold;
-            border: none;
-            transition: 0.3s;
+        /* Custom Card Style */
+        .analyst-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
         }
-        .stButton>button:hover {
-            background-color: #1d4ed8;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        /* Style the Execute Button */
+        button[kind="primary"] {
+            width: 100% !important;
+            border-radius: 10px !important;
+            height: 3.5em !important;
+            font-weight: 800 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+        }
+        /* Style Recommendation Buttons as Chips */
+        div[data-testid="column"] button[kind="secondary"] {
+            border-radius: 20px !important;
+            background-color: #f1f5f9 !important;
+            border: 1px solid #e2e8f0 !important;
+            color: #475569 !important;
+            padding: 4px 12px !important;
+            font-size: 0.85rem !important;
+            transition: 0.2s !important;
+        }
+        div[data-testid="column"] button[kind="secondary"]:hover {
+            background-color: #e2e8f0 !important;
+            border-color: #cbd5e1 !important;
+            color: #1e293b !important;
         }
         .report-section {
             background-color: white;
@@ -135,7 +153,7 @@ def main():
             border-left: 5px solid #2563eb;
             margin-bottom: 1rem;
         }
-        h1 {
+        h1, h2, h3 {
             color: #1e293b;
             font-weight: 800 !important;
         }
@@ -185,34 +203,37 @@ def main():
                 st.dataframe(df.head(5), use_container_width=True)
 
     with col2:
-        st.subheader("💬 AI Analyst")
-        
-        if uploaded_file is not None:
-            # Dynamic Recommendations based on columns
-            cols = df.columns.tolist()
-            recs = ["🛡️ Perform a full data health audit"]
+        with st.container(border=True):
+            st.subheader("💬 AI Analyst")
+            st.info("💡 Pro Tip: Select a recommendation or type your own instructions below.")
             
-            if any(c in str(cols).lower() for c in ['date', 'time', 'year', 'month']):
-                recs.append("📈 Analyze temporal trends and growth")
-            if any(c in str(cols).lower() for c in ['sales', 'revenue', 'price', 'amount']):
-                recs.append("💰 Identify revenue anomalies and outliers")
-            if any(c in str(cols).lower() for c in ['category', 'region', 'type', 'group']):
-                recs.append("🍕 Show distribution across categories")
-            
-            st.markdown("##### 💡 AI Recommendations")
-            # Display recommendations as small buttons
-            rec_cols = st.columns(len(recs))
-            for i, rec in enumerate(recs):
-                if rec_cols[i].button(rec, use_container_width=True, key=f"rec_{i}"):
-                    st.session_state.query_input = rec.split(" ", 1)[1] # Remove emoji
-                    st.rerun()
+            if uploaded_file is not None:
+                # Dynamic Recommendations based on columns
+                cols = df.columns.tolist()
+                recs = ["🛡️ Data health audit"]
+                
+                if any(c in str(cols).lower() for c in ['date', 'time', 'year', 'month']):
+                    recs.append("📈 Temporal trends")
+                if any(c in str(cols).lower() for c in ['sales', 'revenue', 'price', 'amount']):
+                    recs.append("💰 Revenue anomalies")
+                if any(c in str(cols).lower() for c in ['category', 'region', 'type', 'group']):
+                    recs.append("🍕 Category mix")
+                
+                st.markdown("##### AI Recommendations")
+                # Display recommendations as small buttons (pills)
+                rec_cols = st.columns(len(recs))
+                for i, rec in enumerate(recs):
+                    if rec_cols[i].button(rec, use_container_width=True, key=f"rec_{i}"):
+                        st.session_state.query_input = f"Analyze my {rec.split(' ', 1)[1].lower()} and apply the Agentic Pipeline."
+                        st.rerun()
 
-        query = st.text_area("Type your custom instructions...", 
-                           value=st.session_state.query_input,
-                           placeholder="Ex: Compare sales by region and show me a heatmap.",
-                           height=150)
-        
-        analyze_btn = st.button("🚀 Execute Agentic Pipeline")
+            query = st.text_area("Custom instructions", 
+                               value=st.session_state.query_input,
+                               placeholder="Ex: Compare sales by region and show me a heatmap.",
+                               height=120,
+                               label_visibility="collapsed")
+            
+            analyze_btn = st.button("🚀 Execute Agentic Pipeline", type="primary", use_container_width=True)
 
     if uploaded_file and analyze_btn:
         final_query = query
