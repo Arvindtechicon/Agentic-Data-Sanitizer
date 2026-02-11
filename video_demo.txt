@@ -1,55 +1,63 @@
 TITLE: Agentic Data Sanitizer - Demo Script
 AUTHOR: Aravind S Gudi
-DURATION: 2-3 Minutes
+DURATION: 3 Minutes
 
 ---
 
 (0:00 - 0:15) [Introduction]
 
-"Hi everyone, I am Aravind! Today, I’m excited to show you something I’ve been working on. 
+"Hi everyone, I am Aravind! Today, I’m excited to show you the latest evolution of my data agent: the 'Agentic Data Sanitizer.' 
 
-This is the 'Agentic Data Sanitizer.' You might remember my previous project, the 'Data Visualization Agent.' Well, think of this as a huge upgrade. It’s not just about creating charts anymore—it’s about making sure the data behind those charts is actually clean and trustworthy."
-
----
-
-(0:15 - 0:45) [The Problem & The Upgrade]
-
-"We all know the saying: 'Garbage in, Garbage out.' If your data is messy—like having extra dollar signs, missing values, or weird typos—your charts will be wrong. 
-
-That’s why I built the 'Agentic Pipeline.' Instead of just jumping to the visuals, this agent acts like a Senior Data Scientist. It automatically audits, cleans, and checks for anomalies before it ever draws a single line."
+If you've followed my work, you know I love building data tools. But this project is special. It’s not just a visualizer; it’s a digital hazmat suit for your analytics. We’re moving beyond 'pretty pictures' to 'trustworthy insights' by using a strict Agentic Pipeline."
 
 ---
 
-(0:45 - 1:30) [The Demo Walkthrough - Uploading]
+(0:15 - 0:45) [The Problem: Dirty Data]
 
-"Let’s see it in action. I’m going to upload a very messy dataset here called 'uncleaned_sales_data.csv.'
+"We all know the 'Garbage In, Garbage Out' nightmare. Real-world data is filthy. It has currency symbols in numeric columns, inconsistent date formats, and spelling errors that split your categories into five different bars. 
 
-(Action: Point to the upload button)
-
-Once it's uploaded, you can see the raw data is a bit of a disaster. We have currency symbols mixed with numbers, missing dates, and even some crazy outliers—like a laptop being sold for a million dollars!
-
-Now, instead of me doing the work, I’ll use one of these colorful 'AI Recommendations' tailored specifically to my data. I'll just click 'Revenue Deep-Dive' which structures a powerful command: 'Analyze the entire revenue stream and perform anomaly detection.'"
+A standard AI agent might just try to plot this mess and give you a broken chart. But the 'Sanitizer' is different. It acts like a Senior Data Scientist, scrubbing the data before it ever touches a canvas."
 
 ---
 
-(1:30 - 2:15) [Explaining the Results]
+(0:45 - 1:30) [The Demo Walkthrough - Uploading & Visual Representation]
 
-"Look at what happens! The agent starts the Agentic Pipeline. 
+"Let’s upload this 'uncleaned_sales_data.csv.' 
 
-First, look at the 'Data Audit' tab. It gives us a 'Data Health Score.' It found the missing values and the duplicate categories for us.
+(Action: Point to the upload button and then the Raw Data Preview)
 
-Next, in the 'Execution Log,' you can see exactly what it cleaned. It stripped the dollar signs, fixed the dates, and even flagged that million-dollar laptop as a technical error or an anomaly. This is huge because it means our final chart won't be ruined by that one mistake.
+The moment I upload, I can open the 'Raw Data Preview.' Look at this—I'm showing the full dataset here so you can see the mess. We have 'Electr0nics' with a zero, mixed dates like '02-Jan' and '01.04', and even a million-dollar laptop sale which is clearly an outlier. 
 
-And finally, if we go to the 'Intelligent Visuals' tab... there it is! A beautiful, clean trend line. This chart is based on the 'sanitized' data, not the messy original."
+Visualizing this as-is would be a disaster. But notice what happened next to the input area..."
 
 ---
 
-(2:15 - 2:30) [Conclusion]
+(1:30 - 2:00) [The AI Recommendation System]
 
-"This makes data analysis so much safer and faster. It’s completely open-source, and I’d love for you to check it out on my GitHub, play with the code, or even contribute. 
+"Here is the 'Context-Aware Recommendation Engine.' The agent has actually scanned my column names and predicted exactly what I need. 
 
-If you do use it, all I ask is that you mention my name, Aravind S Gudi, or the project process.
+Because it saw dates, it generated this blue 'Time Analysis' chip. Because it saw price and sales, it gave me this peach 'Revenue Deep-Dive.' These aren't just buttons—they are powerful, structured prompts that trigger the full Agentic Pipeline. I'll click 'Revenue Deep-Dive' now."
+
+---
+
+(2:00 - 2:45) [The Results: Audit, Clean, & Visualize]
+
+"The pipeline is now executing: Validation, Preprocessing, and Anomaly Detection.
+
+In the 'Data Audit' tab, we see our Health Score and a list of every formatting sin found. 
+
+In the 'Execution Log,' we see the digital scrub brush at work: stripping symbols, standardizing dates, and isolating that million-dollar outlier so it doesn't skew our scale.
+
+And finally, in 'Intelligent Visuals,' we get the truth. A perfectly calculated trend that merges all electronics sales into one and shows the real trajectory of the business. This is data you can actually base a decision on."
+
+---
+
+(2:45 - 3:00) [Conclusion]
+
+"The Agentic Data Sanitizer makes analysis safer, faster, and more professional. It’s open-source, and all I ask is that if you use it or the pipeline architecture, please mention my name, Aravind S Gudi.
 
 Thanks for watching, and let’s keep our data clean!"
 
 ---
+
+Build with ❤️ by Aravind S Gudi
