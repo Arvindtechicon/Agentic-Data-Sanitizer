@@ -30,7 +30,7 @@ The system follows a strict 4-stage sequential execution:
 - **Event Tagging**: Flags "Black Swan" events or data entry errors for separate analysis.
 
 ### Phase 4: VISUALIZATION (The Output)
-- **Adaptive Visual Policy**: The system is "Instruction-Aware." It automatically renders multiple intelligent charts for general queries, but focuses exclusively on user-specified targets for direct requests (e.g., 'Plot histogram') to prevent output clutter.
+- **Comprehensive Visual Policy**: Automatically renders multiple intelligent charts (Temporal, Financial, Categorical) in a single run.
 - **Clean Rendering**: Plots only the validated and processed data.
 - **Contextual Highlighting**: Automatically highlights identified anomalies in red or specialized callouts within the charts.
 
@@ -54,6 +54,12 @@ All AI-generated Python code is executed in an **E2B Sandbox**. This isolation p
 
 ### Context-Aware Recommendation Engine
 The UI features a dynamic, color-coded suggestion system that analyzes the schema of the uploaded dataset. These chips now act as "Super Prompts"—when clicked, they focus the agent's attention on a specific domain (like Revenue or Time) while still ensuring a comprehensive 360-degree visual report is generated automatically in the "Intelligent Visuals" tab.
+
+### Universal Analyst Mode (Intelligence Routing)
+A key innovation in v1.5 is the **Universal Analyst Mode**. If the user executes the pipeline without providing custom instructions, the system automatically routes the request to a default 'Super Query.' This mode performs a holistic 360-degree audit, cleaning all inconsistent dimensions and generating zero-prompt visualizations for every available data perspective (Temporal, Financial, and Categorical).
+
+### 🛡️ Data Health Scoring
+The agent now reports a real-time **Data Health Score (0-100%)**. This metric is calculated during the 'Validation' phase based on data completeness, column integrity, and formatting consistency. It is displayed as a prominent Streamlit metric in the 'Data Audit' tab, providing stakeholders with an immediate indicator of data reliability.
 
 ---
 

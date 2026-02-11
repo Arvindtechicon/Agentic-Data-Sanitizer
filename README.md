@@ -20,7 +20,7 @@ We called this the **Sanitizer** because:
 ## 🌟 Key Features
 
 - **The Agentic Pipeline**: Sequential processing (Validation -> Preprocessing -> Anomaly Detection -> Visualization).
-- **🚀 Adaptive Multi-Insight Engine**: Generates a 360-degree visualization suite automatically when triggers are generalized or blank, while focusing with surgical precision on specific user-defined chart requests.
+- **🚀 Automated Multi-Insight Engine**: Automatically generates a suite of visualizations covering Temporal, Financial, and Categorical dimensions without requiring manual prompts for each.
 - **💡 AI Recommendation System**: Context-aware action chips that help focus the analysis on specific high-value targets.
 - **Automated Data Audit**: Generates a **Health Score** and identifies missing values or type inconsistencies instantly.
 - **Smart Data Treatment**: Automatically fixes currency symbols, handles missing data, and standardizes categorical names.
@@ -29,48 +29,47 @@ We called this the **Sanitizer** because:
 
 ## 🏗️ System Architecture & Workflow
 
-The following diagram illustrates the **Agentic Pipeline** and the **Adaptive Instruction-Aware Engine**:
+The following diagram illustrates the **Agentic Pipeline** and the **Context-Aware Recommendation Engine**:
 
 ```mermaid
 flowchart TD
     %% Node Definitions
     User([👤 User])
-    UI[🖥️ Streamlit Dashboard]
-    Recs[💡 Recommendation Engine]
-    LLM[🧠 Gemini AI Analyst]
+    UI[🖥️ Streamlit Premium Dashboard]
+    Recs[💡 Context-Aware Recommendation Engine]
+    LLM[🧠 Google Gemini AI]
     Sandbox[🏗️ E2B Secure Sandbox]
     
-    %% Logic Decision
-    Logic{❓ Instruction Aware?}
-    Univ[🌐 Universal 360° Audit]
-    Target[🎯 Targeted Visualization]
-
-    subgraph Pipeline [🛡️ Agentic Pipeline Workflow]
+    subgraph MultiMode [🧠 Intelligence Routing]
         direction TB
-        V{{✅ Phase 1: VALIDATION}}
-        P{{🧹 Phase 2: PREPROCESSING}}
-        A{{🔍 Phase 3: ANOMALY DETECTION}}
-        Z{{📊 Phase 4: VISUALIZATION}}
+        ModeSelect{Prompt Empty?}
+        Manual[Manual Instruction Mode]
+        Universal[Universal Analyst Mode]
+        ModeSelect -->|No| Manual
+        ModeSelect -->|Yes| Universal
+    end
+
+    subgraph Pipeline [🛡️ Agentic Pipeline Architecture]
+        direction TB
+        V{{✅ 1. VALIDATION}}
+        P{{🧹 2. PREPROCESSING}}
+        A{{🔍 3. ANOMALY DETECTION}}
+        Z{{📊 4. VISUALIZATION}}
         V --> P --> A --> Z
     end
 
     %% Connections
-    User -->|1. Uploads Data| UI
-    UI -->|2. Data Schema| Recs
-    Recs -->|3. Adaptive Super-Prompts| User
+    User -->|Uploads CSV| UI
+    UI -->|Analyzes Schema| Recs
+    Recs -->|Interactive Chips| User
+    User -->|Triggers Pipeline| MultiMode
+    MultiMode -->|System Prompt| LLM
+    LLM -->|Python Code| Sandbox
+    Sandbox -. executing .-> Pipeline
     
-    User -->|4. Input Prompt| UI
-    UI -->|5. Instructions + Schema| LLM
-    LLM -->|6. Adaptive Prompt Logic| Logic
-    
-    Logic -->|Empty Prompt| Univ
-    Logic -->|Specific Prompt| Target
-    
-    Univ & Target -->|7. Python Code| Sandbox
-    Sandbox -.->|8. Executes| Pipeline
-    
-    Pipeline -->|9. Sanitized Visuals| UI
-    Pipeline -->|10. Health & Cleaning Logs| UI
+    Z -->|📈 Multi-Perspective Visuals| UI
+    V -->|🛡️ Health Score & Audit| UI
+    P -->|🧹 Cleaning Log| UI
 
     %% Styling 
     classDef user fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
@@ -78,14 +77,14 @@ flowchart TD
     classDef ai fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
     classDef sandbox fill:#eceff1,stroke:#455a64,stroke-width:2px;
     classDef pipe fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
-    classDef logic fill:#fff3e0,stroke:#e65100,stroke-width:2px;
+    classDef mode fill:#fff3e0,stroke:#e65100,stroke-width:2px;
 
     class User user;
     class UI ui;
     class LLM ai;
     class Sandbox sandbox;
-    class Logic,Univ,Target logic;
     class V,P,A,Z pipe;
+    class Recs,ModeSelect,Manual,Universal mode;
 ```
 
 ### The Pipeline Stages:

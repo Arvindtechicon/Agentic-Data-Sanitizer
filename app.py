@@ -52,19 +52,20 @@ def chat_with_llm(e2b_code_interpreter: Sandbox, user_message: str, dataset_path
     system_prompt = f"""You are a Senior AI Data Scientist. Follow the 'Agentic Pipeline':
 1. VALIDATION | 2. PREPROCESSING | 3. ANOMALY DETECTION | 4. VISUALIZATION
 
-ADAPTIVE BEHAVIOR POLICY:
+MANDATORY BEHAVIOR:
 - Dataset location: '{dataset_path}'
 - Actual Columns: {columns_list}
-- **Instruction-Aware Execution**: 
-  - If the user provides a **general or empty request**, perform a "Comprehensive 360-degree Analysis" (Time, Finance, Categories, Health).
-  - If the user provides a **specific request** (e.g., 'Plot sales distribution'), focus your visualizations ONLY on that request while still performing the mandatory Validation/Cleaning/Detection steps in the background.
-  - Do NOT clutter the output with irrelevant charts if a specific task is assigned.
+- **Comprehensive Visual Policy**: Even if the user asks for a simple thing, you MUST automatically include visualizations for the following (if columns are available):
+  - **Temporal Integrity**: Growth trends or timeline study (if Date/Time exists).
+  - **Financial Audit**: Revenue streams/Pricing distribution and outliers (if Sales/Price exists).
+  - **Categorical Mix**: Distribution and top performers (if Category/Region/Group exists).
+  - **Health Metrics**: A bar chart or summary of missing values/data integrity.
 
 STRICT REQUIREMENTS:
-- First, write a brief human-readable plan.
-- Then, write a SINGLE Python code block using ```python...```.
+- First, write a brief human-readable plan in your response.
+- Then, write a SINGLE Python code block using ```python...``` that performs ALL these steps.
 - Use `print("Health Score: X%")` inside the code for the audit tab.
-- Use correct column names: {columns_list}."""
+- Ensure you use the correct column names: {columns_list}."""
 
     with st.spinner('Applying Agentic Pipeline logic...'):
         try:
@@ -266,11 +267,8 @@ def main():
     if uploaded_file and analyze_btn:
         final_query = query.strip()
         if not final_query:
-            # Trigger "Universal Mode" ONLY if the query is blank
-            final_query = "Perform a comprehensive 360-degree data analysis. Execute the full Agentic Pipeline across all available dimensions (Temporal, Financial, Categorical) and generate all applicable visualizations automatically."
-        else:
-            # Handle the specific request with high priority
-            final_query = f"Execute the Agentic Pipeline with high priority on this specific task: {final_query}. Only visualize what is relevant to this task."
+            # Shift to Universal Analyst mode if no specific query is provided
+            final_query = "Perform a comprehensive 360-degree data analysis. Execute the full Agentic Pipeline across all available dimensions (Temporal, Financial, Categorical) and generate all applicable visualizations."
         
         if not st.session_state.google_api_key or not st.session_state.e2b_api_key:
             st.error("Missing API Keys! Configure in sidebar.")
