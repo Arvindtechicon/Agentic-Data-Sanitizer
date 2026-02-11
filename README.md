@@ -34,30 +34,24 @@ We called this the **Sanitizer** because:
 The following diagram illustrates the **Golden Pipeline** architecture of the AI Data Scientist:
 
 ```mermaid
-graph TD
-    User([User]) -->|Custom Query| UI
-    User -->|⚡ Quick Actions| UI[Streamlit Premium UI]
+flowchart TD
+    User([👤 User]) -->|Prompt / Quick Action| UI[Streamlit Premium Dashboard]
     
-    UI -->|CSV Dataset| Sandbox[E2B Secure Sandbox]
-    UI -->|Strategy & Context| Gemini[Google Gemini LLM]
+    UI -->|Data Context| LLM[🧠 Google Gemini 1.5 Flash]
+    LLM -->|Python Code| Sandbox[🛠️ E2B Code Interpreter]
     
-    subgraph Golden_Pipeline [Agentic Golden Pipeline]
+    subgraph Agentic_Pipeline [🛡️ The Agentic Pipeline Architecture]
         direction TB
-        Audit[1. Data Audit & Health Check]
-        Clean[2. Preprocessing & Treatment]
-        Detect[3. Anomaly Detection]
-        Viz[4. Professional Visualization]
-        
-        Audit --> Clean --> Detect --> Viz
+        Audit{{1. VALIDATION}} -->|Health Score| PreProcess{{2. PREPROCESSING}}
+        PreProcess -->|Cleaned Data| Anomaly{{3. ANOMALY DETECTION}}
+        Anomaly -->|Refined Insights| Viz{{4. VISUALIZATION}}
     end
     
-    Gemini -->|Generates Optimized Python| Sandbox
-    Sandbox -->|Executes Strategy| Golden_Pipeline
+    Sandbox -. executes .-> Agentic_Pipeline
     
-    Golden_Pipeline -->|🛡️ Health Score| UI
-    Golden_Pipeline -->|🧹 Cleaning Logs| UI
-    Golden_Pipeline -->|📊 Visual Artifacts| UI
-    Golden_Pipeline -->|🤖 AI Insight| UI
+    Viz -->|� Graphics| UI
+    Audit -->|�️ Reports| UI
+    PreProcess -->|� Logs| UI
 ```
 
 ### The Pipeline Stages:
