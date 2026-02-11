@@ -138,21 +138,33 @@ def main():
             background-color: #1d4ed8 !important;
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
         }
-        /* Style Recommendation Buttons as Chips */
+        /* Style Recommendation Buttons as Premium Chips */
         div[data-testid="column"] button[kind="secondary"] {
-            border-radius: 20px !important;
-            background-color: #f1f5f9 !important;
+            border-radius: 25px !important;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
             border: 1px solid #e2e8f0 !important;
-            color: #475569 !important;
-            padding: 4px 12px !important;
+            color: #3b82f6 !important;
+            padding: 8px 16px !important;
             font-size: 0.85rem !important;
-            transition: 0.2s !important;
+            font-weight: 600 !important;
+            transition: all 0.3s ease !important;
             text-transform: capitalize !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
         }
         div[data-testid="column"] button[kind="secondary"]:hover {
-            background-color: #e2e8f0 !important;
-            border-color: #cbd5e1 !important;
-            color: #1e293b !important;
+            border-color: #3b82f6 !important;
+            background: #eff6ff !important;
+            color: #2563eb !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15) !important;
+        }
+        .recommendation-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
         }
         .report-section {
             background-color: white;
@@ -233,13 +245,15 @@ def main():
                 if any(c in str(cols).lower() for c in ['category', 'region', 'type', 'group']):
                     prompt_templates["Segment Mix"] = "Analyze the entire segmentation and perform a category distribution audit. Standardize all labels and show the top performers."
                 
-                st.markdown("##### AI Recommendations")
-                # Display recommendations as small buttons (pills)
+                st.markdown('<p class="recommendation-label">✨ AI-Powered Analytics Recommendations</p>', unsafe_allow_html=True)
+                # Display recommendations as attractive chips
                 rec_cols = st.columns(len(prompt_templates))
                 for i, (label, detailed_prompt) in enumerate(prompt_templates.items()):
                     if rec_cols[i].button(label, use_container_width=True, key=f"rec_{i}"):
                         st.session_state.query_input = detailed_prompt
                         st.rerun()
+
+                st.divider()
 
             query = st.text_area("Custom instructions", 
                                value=st.session_state.query_input,
