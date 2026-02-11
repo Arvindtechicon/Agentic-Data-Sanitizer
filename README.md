@@ -29,38 +29,48 @@ We called this the **Sanitizer** because:
 
 ## 🏗️ System Architecture & Workflow
 
-The following diagram illustrates the **Agentic Pipeline** and the **Context-Aware Recommendation Engine**:
+The following diagram illustrates the **Agentic Pipeline** and the **Adaptive Instruction-Aware Engine**:
 
 ```mermaid
 flowchart TD
     %% Node Definitions
     User([👤 User])
-    UI[🖥️ Streamlit Premium Dashboard]
-    Recs[💡 AI Recommendation Engine]
-    LLM[🧠 Google Gemini AI]
+    UI[🖥️ Streamlit Dashboard]
+    Recs[💡 Recommendation Engine]
+    LLM[🧠 Gemini AI Analyst]
     Sandbox[🏗️ E2B Secure Sandbox]
     
-    subgraph Pipeline [🛡️ Agentic Pipeline Architecture]
+    %% Logic Decision
+    Logic{❓ Instruction Aware?}
+    Univ[🌐 Universal 360° Audit]
+    Target[🎯 Targeted Visualization]
+
+    subgraph Pipeline [🛡️ Agentic Pipeline Workflow]
         direction TB
-        V{{✅ 1. VALIDATION}}
-        P{{🧹 2. PREPROCESSING}}
-        A{{🔍 3. ANOMALY DETECTION}}
-        Z{{📊 4. VISUALIZATION}}
+        V{{✅ Phase 1: VALIDATION}}
+        P{{🧹 Phase 2: PREPROCESSING}}
+        A{{🔍 Phase 3: ANOMALY DETECTION}}
+        Z{{📊 Phase 4: VISUALIZATION}}
         V --> P --> A --> Z
     end
 
     %% Connections
-    User -->|Uploads Data| UI
-    UI -->|Data Schema| Recs
-    Recs -->|Powerful Suggestions| User
-    User -->|Executes Prompt| UI
-    UI -->|Data Context| LLM
-    LLM -->|Python Code| Sandbox
-    Sandbox -. executes .-> Pipeline
+    User -->|1. Uploads Data| UI
+    UI -->|2. Data Schema| Recs
+    Recs -->|3. Adaptive Super-Prompts| User
     
-    Z -->|📈 Visuals| UI
-    V -->|🛡️ Health Score| UI
-    P -->|🧹 Cleaning Logs| UI
+    User -->|4. Input Prompt| UI
+    UI -->|5. Instructions + Schema| LLM
+    LLM -->|6. Adaptive Prompt Logic| Logic
+    
+    Logic -->|Empty Prompt| Univ
+    Logic -->|Specific Prompt| Target
+    
+    Univ & Target -->|7. Python Code| Sandbox
+    Sandbox -.->|8. Executes| Pipeline
+    
+    Pipeline -->|9. Sanitized Visuals| UI
+    Pipeline -->|10. Health & Cleaning Logs| UI
 
     %% Styling 
     classDef user fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
@@ -68,14 +78,14 @@ flowchart TD
     classDef ai fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px;
     classDef sandbox fill:#eceff1,stroke:#455a64,stroke-width:2px;
     classDef pipe fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px;
-    classDef recs fill:#fff3e0,stroke:#e65100,stroke-width:2px;
+    classDef logic fill:#fff3e0,stroke:#e65100,stroke-width:2px;
 
     class User user;
     class UI ui;
     class LLM ai;
     class Sandbox sandbox;
+    class Logic,Univ,Target logic;
     class V,P,A,Z pipe;
-    class Recs recs;
 ```
 
 ### The Pipeline Stages:
